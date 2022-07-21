@@ -1,3 +1,6 @@
+let PlayerWin =0;
+let CompWin =0;
+
 function getComputerChoice()
 {
     
@@ -18,6 +21,8 @@ function getComputerChoice()
 
 }
 
+
+
 function PlayAround(PlayerSelection,ComputerSelection)
 {
     if(PlayerSelection.charAt(0)=="R")
@@ -25,27 +30,47 @@ function PlayAround(PlayerSelection,ComputerSelection)
         if(ComputerSelection.charAt(0)=="R")
            return "Its a DRAW!!!";
         else if(ComputerSelection.charAt(0)=="P")
-                return "You LOSE!!!Paper beats Rock";
+                { 
+                    ++CompWin;
+                   return "You LOSE!!!Paper beats Rock";
+                }
             else if(ComputerSelection.charAt(0)=="S")
+                 {
+                    ++PlayerWin;
                     return "You WIN!!!Rock beats Scissors";
+                   
+                 }  
     }
     else if(PlayerSelection.charAt(0)=="P")
     {
         if(ComputerSelection.charAt(0)=="P")
            return "Its a DRAW!!!";
         else if(ComputerSelection.charAt(0)=="S")
-                return "You LOSE!!!Scissors beats Paper";
+                {
+                    ++CompWin;
+                    return "You LOSE!!!Scissors beats Paper";
+                }
             else if(ComputerSelection.charAt(0)=="R")
+                   {
+                    ++PlayerWin;
                     return "You WIN!!!Paper beats Rock";
+                   } 
     }
     else if(PlayerSelection.charAt(0)=="S")
     {
         if(ComputerSelection.charAt(0)=="S")
            return "Its a DRAW!!!";
         else if(ComputerSelection.charAt(0)=="P")
+              {
+               ++PlayerWin;
                 return "You WIN!!!Scissors beats Paper";
+               
+              }
             else if(ComputerSelection.charAt(0)=="R")
-                    return "You LOSE!!!Rock beats Scissors";
+                    {
+                        ++CompWin;
+                        return "You LOSE!!!Rock beats Scissors";
+                    }
     }
 }
 
@@ -54,10 +79,10 @@ function Game()
    let rounds = parseInt(prompt("enter no. of rounds:"));
    if(isNaN(rounds))
    {
-     rounds = console.log("Only numbers are allowed please enter again:");
+    rounds = parseInt(prompt("please enter only numbers:"));
    }
-   else
-   {
+   
+   
       for(let i=0;i<rounds;i++)
       {
         let message = `Round:${i+1}`;
@@ -68,7 +93,14 @@ function Game()
         console.log(PlayAround(PlayerSelection,ComputerSelection));
         
       }
-   }
+      console.log("********************\n");
+      if(PlayerWin>CompWin)
+        console.log("Player WINS!!! ");
+      else if(CompWin>PlayerWin)
+        console.log("Computer WINS!!!");
+      else 
+        console.log("It's a DRAW!!!");
+   
 }
 
 Game();
