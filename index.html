@@ -4,21 +4,49 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/styles.css">
         <script src="./external.js"></script>
     </head>
     <body>
        <!--    <script src="external.js"></script> --> 
-       <div class="choices">
-          <button>ROCK</button>
-          <!--include an image of rock-->
+       <div class="title">
+        <p id="first-text">
+            LET'S PLAY
+        </p>
+         <p id="second-text">
+            ROCK PAPER SCISSORS
+         </p>
        </div>
-       <div class="choices">
-          <button>PAPER</button>
-          <!--include an image of paper-->
+
+       <div class="first-heading">
+           <p>
+             First player to reach 5 points 
+           </p>
+           <p>
+              WINS!!
+           </p>
        </div>
+
        <div class="choices">
-          <button>SCISSORS</button>
-          <!--include an image of scissors-->
+          <button id="rock">ROCK</button>
+          <button id="paper">PAPER</button>
+          <button id="scissors">SCISSORS</button>
        </div>
+
+       <div class="results">
+           <p id="outcome"></p>
+           <div class="points">
+               <div id="comp">
+                  <p>COMPUTER:</p>
+                  <p id="pnt"></p>
+               </div>
+
+               <div id="you">
+                   <p>YOU:</p>
+                   <p id="pnt"></p>
+               </div>
+           </div>
+       </div>
+
     </body>
 </html>
