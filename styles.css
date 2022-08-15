@@ -1,0 +1,128 @@
+body
+{
+    background-image: url(/images/wallpaperflare.com_wallpaper.jpg);
+}
+
+.title
+{
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:center;
+   
+}
+
+#firsttext
+{
+    font-size: 30px;
+    font-weight: bold;
+    color:darkkhaki;
+    
+}
+
+#secondtext
+{
+    font-size: 50px;
+    font-style: oblique;
+    color: dodgerblue;
+
+}
+
+.first-heading
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    height: 200px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.first-heading p
+{
+    font-size: 40px;
+    color:cornsilk;
+    font-weight: 900;
+}
+
+.choices
+{
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+#rock,#paper,#scissors
+{
+    height: 150px;
+    width: 200px;
+    margin: 50px;
+    background-size: cover;
+    font-size:  30px;
+    
+}
+
+#rock
+{
+    background-image: url(/images/rock.jpg);
+}
+
+#paper
+{
+    background-image: url(/images/paper.jpg);
+}
+
+#scissors
+{
+    background-image: url(/images/scissors.jpeg);
+}
+
+.results
+{
+    display: flex;
+    flex-direction:column;
+    height: 300px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#outcome
+{
+    height: 50px;
+    width: 900px;
+    background-color:bisque;
+}
+
+.points
+{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+#comp,#you
+{
+    display: flex;
+}
+
+#pnt
+{
+    width: 40px;
+    height: 31px;
+    background-color: beige;
+    color: black;
+}
+
+#comp p
+{
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+#you p
+{
+    font-size: 30px;
+    color: whitesmoke;
+}

@@ -76,17 +76,19 @@ function PlayAround(PlayerSelection,ComputerSelection)
 
 function Game()
 {
-   let rounds = parseInt(prompt("enter no. of rounds:"));
+   /*let rounds = parseInt(prompt("enter no. of rounds:"));
    if(isNaN(rounds))
    {
-    rounds = parseInt(prompt("please enter only numbers:"));
-   }
+   rounds = parseInt(prompt("please enter only numbers:"));
+   }*/
+   rounds = 5;
    
    
       for(let i=0;i<rounds;i++)
       {
         let message = `Round:${i+1}`;
-        console.log(message);
+        /*console.log(message);*/
+        
         let PlayerSelection=prompt("Enter your choice(Rock,Paper,Scissors):");
         PlayerSelection = PlayerSelection.toUpperCase();
         let ComputerSelection = getComputerChoice();
