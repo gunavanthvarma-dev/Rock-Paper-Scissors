@@ -1,6 +1,27 @@
 let PlayerWin =0;
 let CompWin =0;
 
+
+rounds = 5;
+
+let PlayerSelectionR = document.querySelector('#rock');
+let PlayerSelectionP = document.querySelector('#paper');
+let PlayerSelectionS = document.querySelector('#scissors');
+
+const outcome = document.querySelector('#outcome');
+let result = document.querySelector('#outcome');
+
+  
+  PlayerSelectionR.addEventListener("click",function(){
+    PlayAround(PlayerSelectionR.textContent,getComputerChoice());
+  });
+PlayerSelectionP.addEventListener("click",function(){
+  PlayAround(PlayerSelectionP.textContent,getComputerChoice());
+});
+  PlayerSelectionS.addEventListener("click",function(){
+    PlayAround(PlayerSelectionS.textContent,getComputerChoice());
+  });
+
 function getComputerChoice()
 {
     
@@ -23,89 +44,120 @@ function getComputerChoice()
 
 
 
-function PlayAround(PlayerSelection,ComputerSelection)
+ function PlayAround(YourChoice,ComputerSelection)
 {
-    if(PlayerSelection.charAt(0)=="R")
+    let OutCome  = document.querySelector('#outcome');
+    let cpoints = document.querySelector('#cpoints');
+    let ypoints = document.querySelector('#ypoints');
+    
+    if(YourChoice.charAt(0)=="R")
     {
         if(ComputerSelection.charAt(0)=="R")
-           return "Its a DRAW!!!";
+          {
+            
+            OutCome.textContent = "Its a DRAW!!!";
+            
+          } 
         else if(ComputerSelection.charAt(0)=="P")
                 { 
                     ++CompWin;
-                   return "You LOSE!!!Paper beats Rock";
+                   
+                   OutCome.textContent = "You LOSE!!!Paper beats Rock";
+                   cpoints.textContent = CompWin;
                 }
             else if(ComputerSelection.charAt(0)=="S")
                  {
                     ++PlayerWin;
-                    return "You WIN!!!Rock beats Scissors";
+                    //return "You WIN!!!Rock beats Scissors";
+                    OutCome.textContent =  "You WIN!!!Rock beats Scissors";
+                    ypoints.textContent = PlayerWin;
                    
                  }  
     }
-    else if(PlayerSelection.charAt(0)=="P")
-    {
+    else if(YourChoice.charAt(0)=="P")
+     {
         if(ComputerSelection.charAt(0)=="P")
-           return "Its a DRAW!!!";
+          {
+            //return "Its a DRAW!!!";
+            OutCome.textContent = "Its a DRAW!!!";
+          } 
         else if(ComputerSelection.charAt(0)=="S")
                 {
                     ++CompWin;
-                    return "You LOSE!!!Scissors beats Paper";
+                    //return "You LOSE!!!Scissors beats Paper";
+                    OutCome.textContent = "You LOSE!!!Scissors beats Paper";
+                    cpoints.textContent = CompWin;
                 }
             else if(ComputerSelection.charAt(0)=="R")
                    {
                     ++PlayerWin;
-                    return "You WIN!!!Paper beats Rock";
+                    //return "You WIN!!!Paper beats Rock";
+                    OutCome.textContent = "You WIN!!!Paper beats Rock";
+                  
+                    ypoints.textContent = PlayerWin.toString();
                    } 
     }
-    else if(PlayerSelection.charAt(0)=="S")
+  
+    else if(YourChoice.charAt(0)=="S")
     {
         if(ComputerSelection.charAt(0)=="S")
-           return "Its a DRAW!!!";
+          {
+                        //return "Its a DRAW!!!";
+                        OutCome.textContent = "Its a DRAW!!!";
+          }
         else if(ComputerSelection.charAt(0)=="P")
               {
                ++PlayerWin;
-                return "You WIN!!!Scissors beats Paper";
+               // return "You WIN!!!Scissors beats Paper";
+               OutCome.textContent = "You WIN!!!Scissors beats Paper";
+               ypoints.textContent = PlayerWin;
                
               }
             else if(ComputerSelection.charAt(0)=="R")
                     {
                         ++CompWin;
-                        return "You LOSE!!!Rock beats Scissors";
+                        //return "You LOSE!!!Rock beats Scissors";
+                        OutCome.textContent = "You LOSE!!!Rock beats Scissors";
+                        cpoints.textContent = CompWin;
                     }
     }
+
+  if(CompWin==5 || PlayerWin==5)
+  {
+    const choices = document.querySelector('.choices');
+    while(choices.hasChildNodes())
+    {
+      choices.removeChild(choices.firstChild);
+    }
+
+    if(PlayerWin>CompWin)
+    {
+    
+      result.textContent = "Player WINS!!!reload to play again ";
+    }  
+    else if(CompWin>PlayerWin)
+    {
+     
+      result.textContent = "Computer WINS!!!reload to play again"
+    } 
+    else if(CompWin==PlayerWin)
+    {
+      
+      result.textContent = "It's a DRAW!!!reload to play again";
+    }
+
+    
+  }
 }
 
-function Game()
-{
-   /*let rounds = parseInt(prompt("enter no. of rounds:"));
-   if(isNaN(rounds))
-   {
-   rounds = parseInt(prompt("please enter only numbers:"));
-   }*/
-   rounds = 5;
-   
-   
-      for(let i=0;i<rounds;i++)
-      {
-        let message = `Round:${i+1}`;
-        /*console.log(message);*/
-        
-        let PlayerSelection=prompt("Enter your choice(Rock,Paper,Scissors):");
-        PlayerSelection = PlayerSelection.toUpperCase();
-        let ComputerSelection = getComputerChoice();
-        console.log(PlayAround(PlayerSelection,ComputerSelection));
-        
-      }
-      console.log("********************\n");
-      if(PlayerWin>CompWin)
-        console.log("Player WINS!!! ");
-      else if(CompWin>PlayerWin)
-        console.log("Computer WINS!!!");
-      else 
-        console.log("It's a DRAW!!!");
-   
-}
 
-Game();
+
+   
+     
+     
+
+
+
 
 
 

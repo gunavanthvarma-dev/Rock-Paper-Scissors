@@ -107,7 +107,7 @@ body
     display: flex;
 }
 
-#pnt
+.pnt
 {
     width: 40px;
     height: 31px;
@@ -118,11 +118,11 @@ body
 #comp p
 {
     font-size: 30px;
-    color: whitesmoke;
+   
 }
 
 #you p
 {
     font-size: 30px;
-    color: whitesmoke;
+    
 }
